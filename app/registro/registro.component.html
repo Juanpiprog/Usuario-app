@@ -1,0 +1,18 @@
+<div>
+    <h2>Registro</h2>
+    <button (click)="agregarUsuario()">Agregar Usuarios</button>
+    <button (click)="agregarCliente()">Agregar Clientes</button>
+    <button (click)="eliminarUsuario()">Eliminar Usuario</button>
+    <button (click)="eliminarCliente()">Eliminar Cliente</button>
+  
+    <h3>Lista de Usuarios</h3>
+    <ul>
+      <li *ngFor="let usuario of mostrarUsuarios()">{{ usuario.toString() }}</li>
+    </ul>
+  
+    <h3>Lista de Clientes</h3>
+    <ul>
+      <li *ngFor="let cliente of mostrarClientes()">{{ cliente.toString() }}</li>
+    </ul>
+  </div>
+  
