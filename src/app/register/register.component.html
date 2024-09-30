@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="user.name" name="name">
+    <br>
+    <label>Dirección:</label>
+    <input type="text" [(ngModel)]="user.address" name="address">
+    <br>
+    <label>Teléfono:</label>
+    <input type="text" [(ngModel)]="user.phone" name="phone">
+    <br>
+    <button type="submit">Registrar</button>
+  </form>
