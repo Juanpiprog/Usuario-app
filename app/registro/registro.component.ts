@@ -1,41 +1,63 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RegistroService } from '../registro.service';
+import { Usuario, Cliente } from '../models';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule], // Asegúrate de incluir CommonModule
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
+  imports: [CommonModule, FormsModule] // Add imports here
 })
 export class RegistroComponent {
-  constructor(private registroService: RegistroService) {}
+  usuarios: Usuario[] = [];
+  clientes: Cliente[] = [];
+  
+  nuevoUsuario: Usuario = { nombre: '', ci: '', telefono: '', ciudad: '', username: '' };
+  nuevoCliente: Cliente = { nombre: '', ci: '', telefono: '', ciudad: '', direccion: '' };
+
+  constructor(private registroService: RegistroService) {
+    this.cargarDatos();
+  }
+
+  cargarDatos() {
+    this.usuarios = this.registroService.mostrarUsuarios();
+    this.clientes = this.registroService.mostrarClientes();
+  }
 
   agregarUsuario() {
-    this.registroService.agregarUsuario("Juan Pérez", "12345678", "555-1234", "Ciudad A", "juanp");
-    this.registroService.agregarUsuario("lamerteer", "123", "555-5678", "Ciudad C", "lamerteer");
+    this.registroService.agregarUsuario(this.nuevoUsuario.nombre, this.nuevoUsuario.ci, this.nuevoUsuario.telefono, this.nuevoUsuario.ciudad, this.nuevoUsuario.username);
+    this.cargarDatos();
+    this.resetNuevoUsuario();
   }
 
   agregarCliente() {
-    this.registroService.agregarCliente("María López", "87654321", "555-5678", "Ciudad B", "Calle Falsa 123");
-    this.registroService.agregarCliente("culo", "878", "555-5678", "Ciudad D", "Calle Falsa 123");
+    this.registroService.agregarCliente(this.nuevoCliente.nombre, this.nuevoCliente.ci, this.nuevoCliente.telefono, this.nuevoCliente.ciudad, this.nuevoCliente.direccion);
+    this.cargarDatos();
+    this.resetNuevoCliente();
   }
 
-  mostrarUsuarios() {
-    return this.registroService.mostrarUsuarios();
+  eliminarUsuario(ci: string | null) {
+    if (ci) {
+      this.registroService.eliminarUsuario(ci);
+      this.cargarDatos();
+    }
   }
 
-  mostrarClientes() {
-    return this.registroService.mostrarClientes();
+  eliminarCliente(ci: string | null) {
+    if (ci) {
+      this.registroService.eliminarCliente(ci);
+      this.cargarDatos();
+    }
   }
 
-  eliminarUsuario() {
-    this.registroService.eliminarUsuario("Juan Pérez");
+  private resetNuevoUsuario() {
+    this.nuevoUsuario = { nombre: '', ci: '', telefono: '', ciudad: '', username: '' };
   }
 
-  eliminarCliente() {
-    this.registroService.eliminarCliente("87654321");
-    this.registroService.eliminarCliente("culo");
+  private resetNuevoCliente() {
+    this.nuevoCliente = { nombre: '', ci: '', telefono: '', ciudad: '', direccion: '' };
   }
 }

@@ -1,18 +1,105 @@
-<div>
-    <h2>Registro</h2>
-    <button (click)="agregarUsuario()">Agregar Usuarios</button>
-    <button (click)="agregarCliente()">Agregar Clientes</button>
-    <button (click)="eliminarUsuario()">Eliminar Usuario</button>
-    <button (click)="eliminarCliente()">Eliminar Cliente</button>
-  
-    <h3>Lista de Usuarios</h3>
-    <ul>
-      <li *ngFor="let usuario of mostrarUsuarios()">{{ usuario.toString() }}</li>
-    </ul>
-  
-    <h3>Lista de Clientes</h3>
-    <ul>
-      <li *ngFor="let cliente of mostrarClientes()">{{ cliente.toString() }}</li>
-    </ul>
-  </div>
-  
+<h2>Agregar Usuario</h2>
+<form (ngSubmit)="agregarUsuario()">
+  <input [(ngModel)]="nuevoUsuario.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevoUsuario.ci" name="ci" placeholder="CI" required>
+  <input [(ngModel)]="nuevoUsuario.telefono" name="telefono" placeholder="Teléfono" required>
+  <input [(ngModel)]="nuevoUsuario.ciudad" name="ciudad" placeholder="Ciudad" required>
+  <input [(ngModel)]="nuevoUsuario.username" name="username" placeholder="Username" required>
+  <button type="submit">Agregar Usuario</button>
+</form>
+
+<h2>Lista de Usuarios</h2>
+<ul>
+  <li *ngFor="let usuario of usuarios">
+    {{ usuario.toString() }}
+    <button (click)="eliminarUsuario(usuario.ci)">Eliminar</button>
+  </li>
+</ul>
+
+<h2>Agregar Cliente</h2>
+<form (ngSubmit)="agregarCliente()">
+  <input [(ngModel)]="nuevoCliente.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevoCliente.ci" name="ci" placeholder="CI" required>
+  <input [(ngModel)]="nuevoCliente.telefono" name="telefono" placeholder="Teléfono" required>
+  <input [(ngModel)]="nuevoCliente.ciudad" name="ciudad" placeholder="Ciudad" required>
+  <input [(ngModel)]="nuevoCliente.direccion" name="direccion" placeholder="Dirección" required>
+  <button type="submit">Agregar Cliente</button>
+</form>
+
+<h2>Lista de Clientes</h2>
+<ul>
+  <li *ngFor="let cliente of clientes">
+    {{ cliente.toString() }}
+    <button (click)="eliminarCliente(cliente.ci)">Eliminar</button>
+  </li>
+</ul>
+<h2>Agregar Usuario</h2>
+<form (ngSubmit)="agregarUsuario()">
+  <input [(ngModel)]="nuevoUsuario.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevoUsuario.ci" name="ci" placeholder="CI" required>
+  <input [(ngModel)]="nuevoUsuario.telefono" name="telefono" placeholder="Teléfono" required>
+  <input [(ngModel)]="nuevoUsuario.ciudad" name="ciudad" placeholder="Ciudad" required>
+  <input [(ngModel)]="nuevoUsuario.username" name="username" placeholder="Username" required>
+  <button type="submit">Agregar Usuario</button>
+</form>
+
+<h2>Lista de Usuarios</h2>
+<ul>
+  <li *ngFor="let usuario of usuarios">
+    {{ usuario.toString() }}
+    <button (click)="eliminarUsuario(usuario.ci)">Eliminar</button>
+  </li>
+</ul>
+
+<h2>Agregar Cliente</h2>
+<form (ngSubmit)="agregarCliente()">
+  <input [(ngModel)]="nuevoCliente.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevoCliente.ci" name="ci" placeholder="CI" required>
+  <input [(ngModel)]="nuevoCliente.telefono" name="telefono" placeholder="Teléfono" required>
+  <input [(ngModel)]="nuevoCliente.ciudad" name="ciudad" placeholder="Ciudad" required>
+  <input [(ngModel)]="nuevoCliente.direccion" name="direccion" placeholder="Dirección" required>
+  <button type="submit">Agregar Cliente</button>
+</form>
+
+<h2>Lista de Clientes</h2>
+<ul>
+  <li *ngFor="let cliente of clientes">
+    {{ cliente.toString() }}
+    <button (click)="eliminarCliente(cliente.ci)">Eliminar</button>
+  </li>
+</ul>
+<h2>Agregar Usuario</h2>
+<form (ngSubmit)="agregarUsuario()">
+  <input [(ngModel)]="nuevoUsuario.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevoUsuario.ci" name="ci" placeholder="CI" required>
+  <input [(ngModel)]="nuevoUsuario.telefono" name="telefono" placeholder="Teléfono" required>
+  <input [(ngModel)]="nuevoUsuario.ciudad" name="ciudad" placeholder="Ciudad" required>
+  <input [(ngModel)]="nuevoUsuario.username" name="username" placeholder="Username" required>
+  <button type="submit">Agregar Usuario</button>
+</form>
+
+<h2>Lista de Usuarios</h2>
+<ul>
+  <li *ngFor="let usuario of usuarios">
+    {{ usuario.toString() }}
+    <button (click)="eliminarUsuario(usuario.ci)">Eliminar</button>
+  </li>
+</ul>
+
+<h2>Agregar Cliente</h2>
+<form (ngSubmit)="agregarCliente()">
+  <input [(ngModel)]="nuevoCliente.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevoCliente.ci" name="ci" placeholder="CI" required>
+  <input [(ngModel)]="nuevoCliente.telefono" name="telefono" placeholder="Teléfono" required>
+  <input [(ngModel)]="nuevoCliente.ciudad" name="ciudad" placeholder="Ciudad" required>
+  <input [(ngModel)]="nuevoCliente.direccion" name="direccion" placeholder="Dirección" required>
+  <button type="submit">Agregar Cliente</button>
+</form>
+
+<h2>Lista de Clientes</h2>
+<ul>
+  <li *ngFor="let cliente of clientes">
+    {{ cliente.toString() }}
+    <button (click)="eliminarCliente(cliente.ci)">Eliminar</button>
+  </li>
+</ul>
